@@ -1,4 +1,4 @@
-﻿{
+{
     "version": 9,
     "configurePresets": [
         {
@@ -72,6 +72,14 @@
             }
         },
         {
+            "name": "msvc-base",
+            "hidden": true,
+            "inherits": "windows-base",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "installDir": "${sourceDir}/out/install/${presetName}"
+        },
+        {
             "name": "linux-base",
             "hidden": true,
             "generator": "Ninja",
@@ -113,7 +121,8 @@
         {
             "name": "msvc-debug",
             "displayName": "MSVC Debug",
-            "inherits": "windows-base",
+            "hidden": false,
+            "inherits": "msvc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
@@ -121,7 +130,8 @@
         {
             "name": "msvc-release",
             "displayName": "MSVC Release",
-            "inherits": "msvc-debug",
+            "hidden": false,
+            "inherits": "msvc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -129,14 +139,25 @@
         {
             "name": "msvc-relwithdebdinfo",
             "displayName": "MSVC Release With Debug Info",
-            "inherits": "msvc-debug",
+            "hidden": false,
+            "inherits": "msvc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         },
         {
+            "name": "msvc-minsizerel",
+            "displayName": "MSVC Minimum Size Release",
+            "hidden": false,
+            "inherits": "msvc-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
             "name": "clang-cl-debug",
             "displayName": "Clang Cl Debug",
+            "hidden": false,
             "inherits": "clang-cl-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
@@ -145,7 +166,8 @@
         {
             "name": "clang-cl-release",
             "displayName": "Clang Cl Release",
-            "inherits": "clang-cl-debug",
+            "hidden": false,
+            "inherits": "clang-cl-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -153,14 +175,25 @@
         {
             "name": "clang-cl-relwithdebinfo",
             "displayName": "Clang Cl Release With Debug Info",
-            "inherits": "clang-cl-debug",
+            "hidden": false,
+            "inherits": "clang-cl-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         },
         {
+            "name": "clang-cl-minsizerel",
+            "displayName": "Clang Cl Minimum Size Release",
+            "hidden": false,
+            "inherits": "clang-cl-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
             "name": "clang-debug",
             "displayName": "Clang Debug",
+            "hidden": false,
             "inherits": "clang-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
@@ -169,7 +202,8 @@
         {
             "name": "clang-release",
             "displayName": "Clang Release",
-            "inherits": "clang-debug",
+            "hidden": false,
+            "inherits": "clang-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -177,14 +211,25 @@
         {
             "name": "clang-relwithdebinfo",
             "displayName": "Clang Release With Debug Info",
-            "inherits": "clang-debug",
+            "hidden": false,
+            "inherits": "clang-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         },
         {
+            "name": "clang-minsizerel",
+            "displayName": "Clang Minimum Size Release",
+            "hidden": false,
+            "inherits": "clang-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
             "name": "gcc-debug",
             "displayName": "GCC Debug",
+            "hidden": false,
             "inherits": "gcc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
@@ -193,7 +238,8 @@
         {
             "name": "gcc-release",
             "displayName": "GCC Release",
-            "inherits": "gcc-debug",
+            "hidden": false,
+            "inherits": "gcc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -201,14 +247,25 @@
         {
             "name": "gcc-relwithdebinfo",
             "displayName": "GCC Release With Debug Info",
-            "inherits": "gcc-debug",
+            "hidden": false,
+            "inherits": "gcc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         },
         {
+            "name": "gcc-minsizerel",
+            "displayName": "GCC Minimum Size Release",
+            "hidden": false,
+            "inherits": "gcc-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
             "name": "ms-clang-debug",
             "displayName": "MS Clang Debug",
+            "hidden": false,
             "inherits": "ms-clang-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
@@ -217,7 +274,8 @@
         {
             "name": "ms-clang-release",
             "displayName": "MS Clang Release",
-            "inherits": "ms-clang-debug",
+            "hidden": false,
+            "inherits": "ms-clang-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -225,14 +283,25 @@
         {
             "name": "ms-clang-relwithdebinfo",
             "displayName": "MS Clang Release With Debug Info",
-            "inherits": "ms-clang-debug",
+            "hidden": false,
+            "inherits": "ms-clang-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         },
         {
+            "name": "ms-clang-minsizerel",
+            "displayName": "MS Clang Minimum size Release",
+            "hidden": false,
+            "inherits": "ms-clang-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
             "name": "ms-gcc-debug",
             "displayName": "MS GCC Debug",
+            "hidden": false,
             "inherits": "ms-gcc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
@@ -241,7 +310,8 @@
         {
             "name": "ms-gcc-release",
             "displayName": "MS GCC Release",
-            "inherits": "ms-gcc-debug",
+            "hidden": false,
+            "inherits": "ms-gcc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -249,14 +319,25 @@
         {
             "name": "ms-gcc-relwithdebinfo",
             "displayName": "MS GCC Release With Debug Info",
-            "inherits": "ms-gcc-debug",
+            "hidden": false,
+            "inherits": "ms-gcc-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         },
         {
+            "name": "ms-gcc-minsizerel",
+            "displayName": "MS GCC Minimum Size Release",
+            "hidden": false,
+            "inherits": "ms-gcc-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
             "name": "wsl-linux-debug",
             "displayName": "WSL Linux Debug",
+            "hidden": false,
             "inherits": "wsl-linux-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
@@ -265,6 +346,7 @@
         {
             "name": "wsl-linux-release",
             "displayName": "WSL Linux Release",
+            "hidden": false,
             "inherits": "wsl-linux-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
@@ -273,14 +355,25 @@
         {
             "name": "linux-relwithdebinfo",
             "displayName": "WSL Linux Release With Debug Info",
+            "hidden": false,
             "inherits": "wsl-linux-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         },
         {
+            "name": "linux-minsizerel",
+            "displayName": "WSL Linux Minimum Size Release",
+            "hidden": false,
+            "inherits": "wsl-linux-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            }
+        },
+        {
             "name": "macos-debug",
             "displayName": "macOS Debug",
+            "hidden": false,
             "inherits": "macos-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
@@ -289,6 +382,7 @@
         {
             "name": "macos-release",
             "displayName": "macOS Release",
+            "hidden": false,
             "inherits": "macos-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
@@ -297,9 +391,19 @@
         {
             "name": "macos-relwithdebinfo",
             "displayName": "macOS Release With Debug Info",
+            "hidden": false,
             "inherits": "macos-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "macos-minsizerel",
+            "displayName": "macOS Minimum Size Release",
+            "hidden": false,
+            "inherits": "macos-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
             }
         }
     ]
