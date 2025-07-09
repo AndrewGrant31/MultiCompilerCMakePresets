@@ -35,7 +35,7 @@ Then take a preset collection, whichever is the closest to the one you are wanti
 Rename to reflect tothe new base you have just created, and make sure the inherit tag reflects your new base preset.
 
 ### Eg:
-The followng code is example only.  Not really a good idea to copy and paste it.  
+The following code is example only.  Not really a good idea to copy and paste it.  
 Use the code within the file.   
 
 copy a base preset:  
